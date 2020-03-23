@@ -2371,12 +2371,8 @@ Callbacks:
 <p></p>
 <div class="flash flash-warn">
     <svg class="octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap octicon octicon-zap" viewbox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 7H6l3-7-9 9h4l-3 7 9-9z"></path></svg>
-    <strong>Important: </strong>Using self-supervision can help learn features that can transfer to a down-stream task, such as classification! In this example, we used rotation predication as our pretext task for feature representation learning.
-</div>- Pretraining our model on rotation prediction prior to training for classification allowed us to achieve 61.7% accuracy, on just 0.3% of the labeled data (180 samples)!
-<ul>
-<li>Training from scratch with the same amount of data yields an accuracy of 13%.</li>
-<li>The motivation for using self-supervised learning is the ability to train models with decent accuracy without the need of much labeled data!</li>
-</ul>
+    <strong>Important: </strong>Using self-supervision can help learn features that can transfer to a down-stream task, such as classification! In this example, we used rotation predication as our pretext task for feature representation learning. Pretraining our model on rotation prediction prior to training for classification allowed us to achieve 61.7% accuracy, on just 0.3% of the labeled data (180 samples)! Training from scratch with the same amount of data yields an accuracy of 13%. The motivation for using self-supervised learning is the ability to train models with decent accuracy without the need of much labeled data!
+</div>
 
 </div>
 </div>
