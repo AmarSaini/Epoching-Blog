@@ -29,7 +29,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "Just another person trying to Save the World, One Epoch at a Time… . Socials . Github | Twitter | FastAI Profile | PyTorch Profile | . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://amarsaini.github.io/Epoching-Blog/about/",
           "relUrl": "/about/",
           "date": ""
@@ -53,6 +53,20 @@
   
 
   
+  
+
+  
+  
+
+  
+      ,"page10": {
+          "title": "",
+          "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
+          "url": "https://amarsaini.github.io/Epoching-Blog/robots.txt",
+          "relUrl": "/robots.txt",
+          "date": ""
+      }
+      
   
 
 }
