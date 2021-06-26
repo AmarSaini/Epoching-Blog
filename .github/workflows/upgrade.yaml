@@ -101,8 +101,8 @@ jobs:
         cd new_files        
         rm -rf _posts _notebooks _word images
         rm *.md CNAME action.yml _config.yml index.html LICENSE
+        rm _pages/*.md
         rm .github/workflows/chatops.yaml
-        rm .github/workflows/docker-nbdev.yaml
         rm .github/workflows/docker.yaml
         rm .github/ISSUE_TEMPLATE/bug.md .github/ISSUE_TEMPLATE/feature_request.md
         
@@ -114,7 +114,12 @@ jobs:
             cp -r $file ../current_files;
           fi
         done
-        
+
+        # copy custom-variables.scss if doesn't exist
+        if [ ! -f "../current_files/_sass/minima/custom-variables.scss" ]; then
+          cp _sass/minima/custom-variables.scss ../current_files/_sass/minima/
+        fi
+
         # copy select files in assets and _sass
         cp -r assets/js ../current_files/assets
         cp -r assets/badges ../current_files/assets
@@ -165,7 +170,7 @@ jobs:
         upgrade_pr_path.write_text(upgrade_pr)
       shell: python
 
-    - uses: webfactory/ssh-agent@v0.2.0
+    - uses: webfactory/ssh-agent@v0.4.1
       if: steps.check_version.outputs.vbump == 'true'
       with:
           ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}

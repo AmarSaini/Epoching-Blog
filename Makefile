@@ -13,14 +13,15 @@ server-detached: .FORCE
 
 # build or rebuild the services WITHOUT cache
 build: .FORCE
+	chmod 777 Gemfile.lock
 	docker-compose stop || true; docker-compose rm || true;
-	docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
+	docker build --no-cache -t fastai/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
 	docker-compose build --force-rm --no-cache
 
 # rebuild the services WITH cache
 quick-build: .FORCE
 	docker-compose stop || true;
-	docker build -t hamelsmu/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
+	docker build -t fastai/fastpages-jekyll -f _action_files/fastpages-jekyll.Dockerfile .
 	docker-compose build 
 
 # convert word & nb without Jekyll services
@@ -30,6 +31,7 @@ convert: .FORCE
 # stop all containers
 stop: .FORCE
 	docker-compose stop
+	docker ps | grep fastpages | awk '{print $1}' | xargs docker stop
 
 # remove all containers
 remove: .FORCE
@@ -48,3 +50,4 @@ restart-jekyll: .FORCE
 	docker-compose restart jekyll
 
 .FORCE:
+	chmod -R u+rw .

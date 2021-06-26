@@ -9,6 +9,11 @@
         margin-right: auto;
 }
 
+img.emoji{
+      display: inline !important;
+      vertical-align: baseline !important;
+}
+
 .post figcaption {
   text-align: center;
   font-size: .8rem;
@@ -191,21 +196,13 @@ h6:hover .anchor-link {
   font-weight:bold;
 }
 
-// Handle Overflow With Table Output
-
 table {
-  display: block !important;
-  overflow-x: auto;
-  white-space: nowrap;
-  font-size: 75%;
+  white-space: normal;
+  max-width: 100%;
+  font-size: 100%;
   border:none;
   th{
     text-align: center! important;
-  }
-  td{
-    text-overflow:ellipsis;
-    overflow:hidden;
-    max-width: 15em;
   }
 }
 
@@ -236,4 +233,26 @@ table {
   pre{
     white-space: pre-wrap;
   }
+}
+
+
+// Handling large charts on mobile devices
+// @media only screen and (max-width: 1200px) {
+//   /* for mobile phone and tablet devices */
+  .output_wrapper{
+    overflow: auto;
+  }
+// }
+
+.svg-icon.orange{
+  width: 30px;
+  height: 23px;
+}
+
+.code_cell {
+  margin: 1.5rem 0px !important;
+}
+
+pre code {
+  font-size: 15px !important;
 }
