@@ -5,7 +5,7 @@ title: Self-Supervision with FastAI
 toc: true 
 badges: true
 comments: true
-categories: [jupyter]
+categories: [jupyter, computer vision, pytorch, fastai, self-supervised learning]
 image: images/self-sup-rotation.png
 nb_path: _notebooks/2020-03-23-Self-Supervision-with-FastAI.ipynb
 layout: notebook
