@@ -163,13 +163,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -341,8 +334,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="k">def</span> <span class="nf">simple_arch</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">simple_arch</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="c1"># Note that FastAI will automatically cut at pooling layer for the body!</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
         <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
@@ -390,8 +382,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">create_body</span><span class="p">(</span><span class="n">arch</span><span class="o">=</span><span class="n">simple_arch</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">create_body</span><span class="p">(</span><span class="n">arch</span><span class="o">=</span><span class="n">simple_arch</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">body</span>
 </pre></div>
 
@@ -438,8 +429,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="n">head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">head</span>
 </pre></div>
 
@@ -486,8 +476,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="c1"># Note that FastAI automatically determines nf for the head!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note that FastAI automatically determines nf for the head!</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">create_cnn_model</span><span class="p">(</span><span class="n">arch</span><span class="o">=</span><span class="n">simple_arch</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">model</span>
 </pre></div>
@@ -553,8 +542,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># --- Functions to convert between Torch Tensors and PIL Images ---</span>
-<span class="kn">import</span> <span class="nn">torchvision</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torchvision</span>
 <span class="n">tensorToImage</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToPILImage</span><span class="p">()</span>
 <span class="n">imageToTensor</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()</span>
 </pre></div>
@@ -576,8 +564,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
-<span class="c1"># Uncomment and run the below lines if torchvision has trouble downloading MNIST (in the next cell)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Uncomment and run the below lines if torchvision has trouble downloading MNIST (in the next cell)</span>
 
 <span class="c1"># !wget -P data/MNIST/raw/ http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz</span>
 <span class="c1"># !wget -P data/MNIST/raw/ http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz</span>
@@ -600,8 +587,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Download MNIST dataset from PyTorch if not downloaded already!</span>
-<span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="s1">'data/'</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="s1">'data/'</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -657,8 +643,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
-<span class="k">class</span> <span class="nc">Custom_Dataset_MNIST</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Custom_Dataset_MNIST</span><span class="p">():</span>
     <span class="sd">'''</span>
 <span class="sd">    A Dataset for Rotation-based Self-Supervision! Images are rotated clockwise.</span>
 <span class="sd">    - file - MNIST processed .pt file.</span>
@@ -749,8 +734,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make rotation datasets</span>
-<span class="n">train_ds</span> <span class="o">=</span> <span class="n">Custom_Dataset_MNIST</span><span class="p">(</span><span class="s1">'data/MNIST/processed/training.pt'</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_ds</span> <span class="o">=</span> <span class="n">Custom_Dataset_MNIST</span><span class="p">(</span><span class="s1">'data/MNIST/processed/training.pt'</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">valid_ds</span> <span class="o">=</span> <span class="n">Custom_Dataset_MNIST</span><span class="p">(</span><span class="s1">'data/MNIST/processed/test.pt'</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{0}</span><span class="s1"> Training Samples | </span><span class="si">{1}</span><span class="s1"> Validation Samples'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_ds</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">)))</span>
 </pre></div>
@@ -846,8 +830,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a config for our model's head!</span>
-<span class="n">rotation_head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rotation_head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">rotation_head</span>
 </pre></div>
 
@@ -902,8 +885,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Top_2 accuracy is a nice metric for hard-cases:</span>
-<span class="c1"># - A zero rotated 90 or 270 degrees?</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># - A zero rotated 90 or 270 degrees?</span>
 <span class="c1"># - A one rotated 0 or 180 degrees?</span>
 <span class="c1"># etc :P</span>
 
@@ -952,8 +934,7 @@ Note that <code>simple_arch</code> takes in one argument, <code>pretrained</code
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="c1"># Note to set a value for lin_ftrs, we use the defined config above.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note to set a value for lin_ftrs, we use the defined config above.</span>
 <span class="n">learner</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span>
                       <span class="n">simple_arch</span><span class="p">,</span>
                       <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1258,8 +1239,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Access the body of our model</span>
-<span class="n">trained_body</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trained_body</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">trained_body</span>
 </pre></div>
 
@@ -1314,8 +1294,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make save directory if it doesn't exist</span>
-<span class="n">save_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'rotation_cps/'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">save_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'rotation_cps/'</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">save_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
     <span class="n">save_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
 
@@ -1366,8 +1345,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use 0.3% classification labeled data for training!</span>
-<span class="c1"># Use 100% classification labeled data for validation!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use 100% classification labeled data for validation!</span>
 <span class="n">train_ds</span> <span class="o">=</span> <span class="n">Custom_Dataset_MNIST</span><span class="p">(</span><span class="s1">'data/MNIST/processed/training.pt'</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">0.003</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">valid_ds</span> <span class="o">=</span> <span class="n">Custom_Dataset_MNIST</span><span class="p">(</span><span class="s1">'data/MNIST/processed/test.pt'</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{0}</span><span class="s1"> Training Samples | </span><span class="si">{1}</span><span class="s1"> Validation Samples'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_ds</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">)))</span>
@@ -1473,8 +1451,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="n">classification_head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">classification_head</span> <span class="o">=</span> <span class="n">create_head</span><span class="p">(</span><span class="n">nf</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lin_ftrs</span><span class="o">=</span><span class="p">[])</span>
 <span class="n">classification_head</span>
 </pre></div>
 
@@ -1533,8 +1510,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="c1"># pretrained=True will load the saved rotation pretraining weights into our model's body!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pretrained=True will load the saved rotation pretraining weights into our model's body!</span>
 <span class="c1"># See simple_arch() function definition for more details!</span>
 <span class="n">learner</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span>
                       <span class="n">simple_arch</span><span class="p">,</span>
@@ -2200,8 +2176,7 @@ Callbacks:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-show</span>
-<span class="c1"># pretrained=False, Create the same model as before, but without using the rotation pretraining weights!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pretrained=False, Create the same model as before, but without using the rotation pretraining weights!</span>
 <span class="n">learner</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span>
                       <span class="n">simple_arch</span><span class="p">,</span>
                       <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
